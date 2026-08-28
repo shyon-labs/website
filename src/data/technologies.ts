@@ -1,0 +1,18 @@
+export const technologies = [
+  { name: 'React', category: 'Frontend', description: 'Component-driven UIs' },
+  { name: 'Angular', category: 'Frontend', description: 'Enterprise-grade apps' },
+  { name: 'Vue.js', category: 'Frontend', description: 'Progressive framework' },
+  { name: 'Next.js', category: 'Frontend', description: 'Full-stack React' },
+  { name: 'Flutter', category: 'Mobile', description: 'Cross-platform apps' },
+  { name: 'Node.js', category: 'Backend', description: 'Server-side JS' },
+  { name: 'Express', category: 'Backend', description: 'API framework' },
+  { name: 'Python', category: 'AI / Data', description: 'ML & data pipelines' },
+  { name: 'TypeScript', category: 'Language', description: 'Type-safe JS' },
+  { name: 'Dart', category: 'Language', description: 'Flutter language' },
+  { name: 'Java', category: 'Language', description: 'Enterprise backends' },
+  { name: 'PostgreSQL', category: 'Database', description: 'Relational data' },
+  { name: 'MongoDB', category: 'Database', description: 'Document store' },
+  { name: 'Firebase', category: 'Platform', description: 'Realtime backend' },
+  { name: 'MySQL', category: 'Database', description: 'Structured data' },
+  { name: 'AI / ML', category: 'Intelligence', description: 'TensorFlow · LangChain' },
+]
