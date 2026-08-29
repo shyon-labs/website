@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/work", "destination": "/products", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
