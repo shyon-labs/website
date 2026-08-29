@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import HeroCanvas from './HeroCanvas'
@@ -16,6 +17,8 @@ const wordVariants = {
 }
 
 export default function Hero() {
+  const navigate = useNavigate()
+
   const scrollToContact = () => {
     const el = document.querySelector('#contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -95,9 +98,8 @@ export default function Hero() {
           </MagneticButton>
 
           <MagneticButton
-            as="a"
-            href="/work"
             className="inline-flex items-center gap-2.5 px-6 py-3.5 md:px-7 md:py-4 border border-border text-text-primary font-medium text-sm rounded-full hover:border-border-light hover:bg-surface transition-all duration-300"
+            onClick={() => navigate('/products')}
           >
             See upcoming work
           </MagneticButton>
