@@ -1,0 +1,6 @@
+# robots.txt - ShyonLabs (https://shyonlabs.tech)  
+  
+User-agent: *  
+Allow: /  
+  
+Sitemap: https://shyonlabs.tech/sitemap.xml  

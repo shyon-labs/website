@@ -38,7 +38,7 @@ export default function Founder() {
             <p className="text-text-muted text-base md:text-lg leading-relaxed mb-4">
               "ShyonLabs wasn't born out of a desire to build another software business. It was born from a deep conviction that great software should solve real human problems — built with pride, craft, and unwavering dedication to quality."
             </p>
-            <p className="text-text-dim text-xs font-mono">— Mr Shayan, Founder of ShyonLabs</p>
+            <p className="text-text-dim text-xs font-mono">— Mr Shayan</p>
           </motion.div>
 
           {/* Right Founder Photo — Prominent Accent Border, Sits Right Next to Text */}

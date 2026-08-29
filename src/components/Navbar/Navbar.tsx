@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'About', href: '/about' },
   { label: 'Founder', href: '/founder' },
-  { label: 'Careers', href: '/opportunities' },
+  { label: 'Opportunities', href: '/opportunities' },
 ]
 
 export default function Navbar() {
@@ -81,14 +81,12 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-300 relative group ${
-                  isLinkActive(link.href) ? 'text-accent' : 'text-text-muted hover:text-text-primary'
-                }`}
+                className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-300 relative group ${isLinkActive(link.href) ? 'text-accent' : 'text-text-muted hover:text-text-primary'
+                  }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300 ${
-                  isLinkActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
+                <span className={`absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300 ${isLinkActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
               </a>
             ))}
           </div>
@@ -138,9 +136,8 @@ export default function Navbar() {
                     <a
                       href={link.href}
                       onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                      className={`block text-2xl sm:text-3xl font-bold py-3 border-b border-border transition-colors duration-300 ${
-                        isLinkActive(link.href) ? 'text-accent' : 'text-text-primary hover:text-accent'
-                      }`}
+                      className={`block text-2xl sm:text-3xl font-bold py-3 border-b border-border transition-colors duration-300 ${isLinkActive(link.href) ? 'text-accent' : 'text-text-primary hover:text-accent'
+                        }`}
                     >
                       {link.label}
                     </a>
