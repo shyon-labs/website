@@ -57,8 +57,7 @@ export default function Services() {
                 onHoverStart={() => setActiveIndex(i)}
                 onHoverEnd={() => setActiveIndex(null)}
                 animate={{ backgroundColor: isActive ? 'color-mix(in srgb, var(--color-surface) 90%, transparent)' : 'transparent' }}
-                transition={{ duration: 0.35, ease }}
-                whileHover={{ x: 6 }}
+                transition={{ duration: 0.45, ease }}
               >
                 <div className="group flex items-start gap-8 py-7 px-4">
                   <motion.span
@@ -77,26 +76,28 @@ export default function Services() {
                     <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">{service.title}</span>
                   </motion.h3>
 
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        className="flex-1 max-w-md"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 20 }}
-                        transition={{ duration: 0.4, ease }}
-                      >
-                        <p className="text-text-muted text-sm leading-relaxed mb-4">{service.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {service.tags.map((tag) => (
-                            <span key={tag} className="px-2.5 py-1 text-xs border border-border text-text-muted rounded-full bg-background">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="flex-1 max-w-md min-h-[84px]">
+                    <AnimatePresence mode="wait" initial={false}>
+                      {isActive && (
+                        <motion.div
+                          key={service.number}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.35, ease }}
+                        >
+                          <p className="text-text-muted text-sm leading-relaxed mb-4">{service.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {service.tags.map((tag) => (
+                              <span key={tag} className="px-2.5 py-1 text-xs border border-border text-text-muted rounded-full bg-background">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
                   {/* Sparkle indicator symbol instead of arrow button */}
                   <motion.div
@@ -114,17 +115,11 @@ export default function Services() {
                   </motion.div>
                 </div>
 
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent"
-                      initial={{ scaleY: 0 }}
-                      animate={{ scaleY: 1 }}
-                      exit={{ scaleY: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </AnimatePresence>
+                <motion.div
+                className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent origin-center"
+                animate={{ scaleY: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
+                transition={{ duration: 0.4, ease }}
+                />
               </motion.div>
             )
           })}
