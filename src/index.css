@@ -47,7 +47,7 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    transition: background-color 250ms ease, color 250ms ease;
+    transition: background-color 550ms ease, color 550ms ease;
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.6;
@@ -177,6 +177,37 @@
   }
 }
 
+.theme-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 180ms ease;
+}
+
+.theme-transition-active {
+  opacity: 1;
+}
+
+.theme-transition-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 0 0 999vmax var(--color-bg), 0 0 80px 18px var(--color-accent-dim);
+  transition: transform 680ms var(--ease-out-expo);
+}
+
+.theme-transition-active .theme-transition-orb {
+  transform: translate(-50%, -50%) scale(20);
+}
+
 /* Lenis smooth scroll */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -234,5 +265,9 @@ html.lenis, html.lenis body { height: auto; }
 
   .shimmer-line::after {
     animation: none;
+  }
+
+  .theme-transition {
+    display: none;
   }
 }

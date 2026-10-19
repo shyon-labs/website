@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import Navbar from './components/Navbar/Navbar'
@@ -33,12 +33,27 @@ export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return localStorage.getItem('shyonlabs-theme') === 'dark' ? 'dark' : 'light'
   })
+  const [themeTransition, setThemeTransition] = useState(false)
+  const themeTransitionTimeout = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     document.documentElement.style.colorScheme = theme
     localStorage.setItem('shyonlabs-theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    return () => {
+      if (themeTransitionTimeout.current) window.clearTimeout(themeTransitionTimeout.current)
+    }
+  }, [])
+
+  const toggleTheme = () => {
+    setThemeTransition(true)
+    setTheme(current => current === 'dark' ? 'light' : 'dark')
+    if (themeTransitionTimeout.current) window.clearTimeout(themeTransitionTimeout.current)
+    themeTransitionTimeout.current = window.setTimeout(() => setThemeTransition(false), 720)
+  }
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -62,9 +77,12 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="noise-overlay" aria-hidden="true" />
+      <div className={`theme-transition ${themeTransition ? 'theme-transition-active' : ''}`} aria-hidden="true">
+        <span className="theme-transition-orb" />
+      </div>
       <PageLoader />
       <div id="main-content" className="min-h-screen flex flex-col justify-between">
-        <Navbar theme={theme} onThemeToggle={() => setTheme(current => current === 'dark' ? 'light' : 'dark')} />
+        <Navbar theme={theme} onThemeToggle={toggleTheme} />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
