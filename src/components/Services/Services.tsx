@@ -53,7 +53,7 @@ export default function Services() {
               <motion.div
                 key={service.number}
                 role="listitem"
-                className="relative h-[142px] border-b border-border cursor-pointer overflow-hidden"
+                className="relative h-[190px] border-b border-border cursor-pointer overflow-hidden"
                 onHoverStart={() => setActiveIndex(i)}
                 onHoverEnd={() => setActiveIndex(null)}
                 animate={{ backgroundColor: isActive ? 'color-mix(in srgb, var(--color-surface) 90%, transparent)' : 'transparent' }}
