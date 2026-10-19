@@ -45,25 +45,8 @@ export default function Hero() {
         animate={{ y: [0, -18, 0], opacity: [0.35, 1, 0.35] }}
         transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div
-        className="absolute right-[13%] top-[17%] hidden h-36 w-36 rounded-full border border-accent/20 md:block pointer-events-none"
-        animate={{ rotate: 360, scale: [1, 1.06, 1] }}
-        transition={{ rotate: { duration: 24, repeat: Infinity, ease: 'linear' }, scale: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-      >
-        <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_18px_4px_var(--color-accent-dim)]" />
-      </motion.div>
 
       <div className="container-xl relative z-10 pt-28 pb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 18, letterSpacing: '0.2em' }}
-          animate={{ opacity: 1, y: 0, letterSpacing: '0.48em' }}
-          transition={{ duration: 1.1, delay: 0.05, ease }}
-          className="mb-6 text-[clamp(1.1rem,2.5vw,2.25rem)] font-semibold uppercase text-accent"
-          aria-label="ShyonLabs"
-        >
-          SHYONLABS
-        </motion.div>
-
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -92,13 +75,6 @@ export default function Hero() {
             </span>
           ))}
         </motion.h1>
-
-        <motion.div
-          className="mb-7 h-px w-24 origin-left bg-accent/70"
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.02, ease }}
-        />
 
         {/* Sub */}
         <motion.div
