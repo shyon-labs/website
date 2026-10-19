@@ -53,15 +53,15 @@ export default function Services() {
               <motion.div
                 key={service.number}
                 role="listitem"
-                className="relative border-b border-border cursor-pointer overflow-hidden"
+                className="relative h-[142px] border-b border-border cursor-pointer overflow-hidden"
                 onHoverStart={() => setActiveIndex(i)}
                 onHoverEnd={() => setActiveIndex(null)}
                 animate={{ backgroundColor: isActive ? 'color-mix(in srgb, var(--color-surface) 90%, transparent)' : 'transparent' }}
                 transition={{ duration: 0.45, ease }}
               >
-                <div className="group flex items-start gap-8 py-7 px-4">
+                <div className="group flex h-full items-center gap-8 px-4">
                   <motion.span
-                    className="font-mono text-sm w-10 shrink-0 mt-1"
+                    className="font-mono text-sm w-10 shrink-0"
                     animate={{ color: isActive ? 'var(--color-accent)' : 'var(--color-dim)' }}
                     transition={{ duration: 0.3 }}
                   >
@@ -76,7 +76,7 @@ export default function Services() {
                     <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">{service.title}</span>
                   </motion.h3>
 
-                  <div className="flex-1 max-w-md min-h-[84px]">
+                  <div className="flex-1 max-w-md">
                     <AnimatePresence mode="wait" initial={false}>
                       {isActive && (
                         <motion.div
