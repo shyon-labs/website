@@ -56,13 +56,14 @@ export default function Services() {
                 className="relative border-b border-border cursor-pointer overflow-hidden"
                 onHoverStart={() => setActiveIndex(i)}
                 onHoverEnd={() => setActiveIndex(null)}
-                animate={{ backgroundColor: isActive ? 'rgba(26,26,26,0.9)' : 'rgba(17,17,17,0)' }}
-                transition={{ duration: 0.35 }}
+                animate={{ backgroundColor: isActive ? 'color-mix(in srgb, var(--color-surface) 90%, transparent)' : 'transparent' }}
+                transition={{ duration: 0.35, ease }}
+                whileHover={{ x: 6 }}
               >
-                <div className="flex items-start gap-8 py-7 px-4">
+                <div className="group flex items-start gap-8 py-7 px-4">
                   <motion.span
                     className="font-mono text-sm w-10 shrink-0 mt-1"
-                    animate={{ color: isActive ? '#E8FF8B' : '#444444' }}
+                    animate={{ color: isActive ? 'var(--color-accent)' : 'var(--color-dim)' }}
                     transition={{ duration: 0.3 }}
                   >
                     {service.number}
@@ -70,10 +71,10 @@ export default function Services() {
 
                   <motion.h3
                     className="text-xl font-semibold flex-1 tracking-tight"
-                    animate={{ color: isActive ? '#F0F0F0' : '#888888' }}
+                    animate={{ color: isActive ? 'var(--color-text)' : 'var(--color-muted)' }}
                     transition={{ duration: 0.3 }}
                   >
-                    {service.title}
+                    <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">{service.title}</span>
                   </motion.h3>
 
                   <AnimatePresence>
@@ -101,14 +102,14 @@ export default function Services() {
                   <motion.div
                     className="shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center"
                     animate={{
-                      borderColor: isActive ? '#E8FF8B' : '#282828',
-                      backgroundColor: isActive ? 'rgba(232,255,139,0.12)' : 'transparent',
+                      borderColor: isActive ? 'var(--color-accent)' : 'var(--color-border)',
+                      backgroundColor: isActive ? 'var(--color-accent-dim)' : 'transparent',
                     }}
                     transition={{ duration: 0.3 }}
                   >
                     <Sparkles
                       size={13}
-                      style={{ color: isActive ? '#E8FF8B' : '#444444' }}
+                      style={{ color: isActive ? 'var(--color-accent)' : 'var(--color-dim)' }}
                     />
                   </motion.div>
                 </div>

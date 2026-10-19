@@ -1,11 +1,10 @@
-import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import PageLoader from './components/PageLoader/PageLoader'
 import HomePage from './pages/HomePage'
-import ProductsPage from './pages/ProductsPage'
 import AboutPage from './pages/AboutPage'
 import FounderPage from './pages/FounderPage'
 import OpportunitiesPage from './pages/OpportunitiesPage'
@@ -31,6 +30,16 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return localStorage.getItem('shyonlabs-theme') === 'dark' ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.colorScheme = theme
+    localStorage.setItem('shyonlabs-theme', theme)
+  }, [theme])
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -55,11 +64,12 @@ export default function App() {
       <div className="noise-overlay" aria-hidden="true" />
       <PageLoader />
       <div id="main-content" className="min-h-screen flex flex-col justify-between">
-        <Navbar />
+        <Navbar theme={theme} onThemeToggle={() => setTheme(current => current === 'dark' ? 'light' : 'dark')} />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
+            {/* ProductsPage is intentionally hidden until product listings are ready. */}
+            <Route path="/products" element={<Navigate to="/" replace />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/founder" element={<FounderPage />} />
             <Route path="/opportunities" element={<OpportunitiesPage />} />

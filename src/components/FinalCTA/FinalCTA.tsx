@@ -17,7 +17,7 @@ export default function FinalCTA() {
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(232,255,139,0.04) 0%, rgba(124,58,237,0.035) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, color-mix(in srgb, var(--color-accent) 4%, transparent) 50%, transparent 70%)',
             filter: 'blur(50px)',
           }}
         />

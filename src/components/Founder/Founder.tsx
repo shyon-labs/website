@@ -32,13 +32,17 @@ export default function Founder() {
           >
             <span className="label-sm text-accent mb-2 block">Founder's Story</span>
             <h2 className="text-section font-bold tracking-tight text-text-primary mb-5 leading-tight">
-              Driven by Passion. <br />
+              Founded by Shayan Shahid. <br />
               <span className="text-accent">Engineered with Purpose.</span>
             </h2>
+            <p className="text-text-primary text-sm md:text-base font-medium leading-relaxed mb-4">
+              ShyonLabs was founded by Shayan Shahid, a software engineering student and independent builder from Pakistan.
+              He is building ShyonLabs as a product studio focused on useful software, thoughtful digital experiences, and practical AI tools for people around the world.
+            </p>
             <p className="text-text-muted text-base md:text-lg leading-relaxed mb-4">
               "ShyonLabs wasn't born out of a desire to build another software business. It was born from a deep conviction that great software should solve real human problems — built with pride, craft, and unwavering dedication to quality."
             </p>
-            <p className="text-text-dim text-xs font-mono">— Mr Shayan</p>
+            <p className="text-text-dim text-xs font-mono">— Shayan Shahid, Founder</p>
           </motion.div>
 
           {/* Right Founder Photo — Prominent Accent Border, Sits Right Next to Text */}
@@ -52,7 +56,7 @@ export default function Founder() {
             <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-accent shadow-2xl bg-surface flex items-center justify-center">
               <img
                 src={founderPhoto}
-                alt="Mr Shayan - Founder of ShyonLabs"
+                alt="Shayan Shahid - Founder of ShyonLabs"
                 className="w-full h-full object-cover object-center"
               />
             </div>

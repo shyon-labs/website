@@ -24,9 +24,9 @@ export default function Footer() {
     <footer className="border-t border-border py-10 md:py-14" aria-label="Footer">
       <div className="container-xl">
         {/* Top */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 items-start mb-10 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 md:gap-10 items-start mb-10 md:mb-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1">
             <p className="font-bold text-sm tracking-[0.15em] uppercase text-text-primary mb-1 flex items-center gap-2">
               <span className="w-5 h-5 rounded bg-surface-2 border border-border flex items-center justify-center text-[9px] font-mono text-accent font-extrabold">SL</span>
               SHYONLABS
@@ -42,15 +42,10 @@ export default function Footer() {
             <p className="label-sm mb-4">Explore</p>
             <ul className="space-y-2.5">
               <li>
-                <Link to="/products" className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300">
-                  Upcoming Products
-                </Link>
-              </li>
-              <li>
                 <a
                   href="/#services"
                   onClick={(e) => { e.preventDefault(); handleNavClick('/#services') }}
-                  className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300"
+                  className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300"
                 >
                   Services
                 </a>
@@ -59,7 +54,7 @@ export default function Footer() {
                 <a
                   href="/#technologies"
                   onClick={(e) => { e.preventDefault(); handleNavClick('/#technologies') }}
-                  className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300"
+                  className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300"
                 >
                   Technologies
                 </a>
@@ -72,24 +67,24 @@ export default function Footer() {
             <p className="label-sm mb-4">Studio</p>
             <ul className="space-y-2.5">
               <li>
-                <Link to="/about" className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300">
+                <Link to="/about" className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300">
                   About ShyonLabs
                 </Link>
               </li>
               <li>
-                <Link to="/founder" className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300">
+                <Link to="/founder" className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300">
                   Founder Profile
                 </Link>
               </li>
               <li>
-                <Link to="/opportunities" className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300">
+                <Link to="/opportunities" className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300">
                   Opportunities (Careers)
                 </Link>
               </li>
               <li>
                 <a
                   href="mailto:shyonlabs@gmail.com"
-                  className="text-text-dim text-xs hover:text-text-muted transition-colors duration-300 flex items-center gap-1.5"
+                  className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300 flex items-center gap-1.5"
                 >
                   <Mail size={11} className="text-accent" />
                   shyonlabs@gmail.com
@@ -107,7 +102,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/shyon-labs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border text-text-dim text-xs hover:border-[#0077B5] hover:text-[#0077B5] transition-all duration-300"
+                className="footer-link inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border text-text-dim text-xs hover:font-semibold hover:border-[#0077B5] hover:text-[#0077B5] transition-all duration-300"
                 aria-label="ShyonLabs on LinkedIn"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -122,7 +117,7 @@ export default function Footer() {
                 href="https://github.com/shyon-labs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border text-text-dim text-xs hover:border-text-primary hover:text-text-primary transition-all duration-300"
+                className="footer-link inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border text-text-dim text-xs hover:font-semibold hover:border-text-primary hover:text-text-primary transition-all duration-300"
                 aria-label="ShyonLabs GitHub Organization"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">

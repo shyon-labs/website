@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import HeroCanvas from './HeroCanvas'
@@ -17,8 +16,6 @@ const wordVariants = {
 }
 
 export default function Hero() {
-  const navigate = useNavigate()
-
   const scrollToContact = () => {
     const el = document.querySelector('#contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -38,6 +35,16 @@ export default function Hero() {
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background opacity-60 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      <motion.div
+        className="absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-accent/10 blur-3xl pointer-events-none"
+        animate={{ x: [0, -28, 0], y: [0, 24, 0], scale: [1, 1.08, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute left-[12%] top-[22%] h-2 w-2 rounded-full bg-accent shadow-[0_0_30px_8px_rgba(232,255,139,0.35)] pointer-events-none"
+        animate={{ y: [0, -18, 0], opacity: [0.35, 1, 0.35] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
       <div className="container-xl relative z-10 pt-28 pb-24">
         {/* Label */}
@@ -90,19 +97,13 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-3"
         >
           <MagneticButton
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 md:px-7 md:py-4 bg-accent text-background font-bold text-sm rounded-full hover:bg-white transition-colors duration-300 group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 md:px-7 md:py-4 bg-accent text-background font-bold text-sm rounded-full hover:bg-surface hover:text-accent transition-colors duration-300 group"
             onClick={scrollToContact}
           >
             Contact us
             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
           </MagneticButton>
 
-          <MagneticButton
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 md:px-7 md:py-4 border border-border text-text-primary font-medium text-sm rounded-full hover:border-border-light hover:bg-surface transition-all duration-300"
-            onClick={() => navigate('/products')}
-          >
-            See upcoming work
-          </MagneticButton>
         </motion.div>
 
         {/* Scroll indicator */}

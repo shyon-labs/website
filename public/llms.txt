@@ -1,0 +1,24 @@
+# ShyonLabs
+
+> ShyonLabs is an independent AI and software product studio based in Pakistan, building useful digital products for a global audience.
+
+## Founder
+
+ShyonLabs was founded by **Shayan Shahid**, a software engineering student and independent builder from Pakistan.
+
+## What ShyonLabs does
+
+ShyonLabs creates web applications, mobile experiences, practical AI tools, and intelligent software systems. The studio focuses on useful products, thoughtful digital experiences, and reliable engineering.
+
+## Current opportunities
+
+ShyonLabs does not currently have any open roles. New opportunities will be listed at https://shyonlabs.tech/opportunities when they become available.
+
+## Official pages
+
+- Homepage: https://shyonlabs.tech/
+- Founder: https://shyonlabs.tech/founder
+- About: https://shyonlabs.tech/about
+- Opportunities: https://shyonlabs.tech/opportunities
+- LinkedIn: https://pk.linkedin.com/in/mrshayan
+- GitHub: https://github.com/shyon-labs

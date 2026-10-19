@@ -57,8 +57,8 @@ export default function Process() {
                 <div className="relative shrink-0 mt-1">
                   <motion.div
                     className="w-10 h-10 rounded-full border-2 bg-background flex items-center justify-center z-10 relative"
-                    initial={{ borderColor: '#1F1F1F' }}
-                    whileInView={{ borderColor: '#E8FF8B' }}
+                    initial={{ borderColor: 'var(--color-border)' }}
+                    whileInView={{ borderColor: 'var(--color-accent)' }}
                     viewport={{ once: true, amount: 0.6 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
                   >

@@ -1,17 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Products', href: '/products' },
   { label: 'Services', href: '/#services' },
   { label: 'About', href: '/about' },
   { label: 'Founder', href: '/founder' },
   { label: 'Opportunities', href: '/opportunities' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ theme, onThemeToggle }: { theme: 'dark' | 'light'; onThemeToggle: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const prevScrollY = useRef(0)
@@ -94,8 +93,17 @@ export default function Navbar() {
           {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-3">
             <button
+              type="button"
+              onClick={onThemeToggle}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-primary transition-colors hover:border-accent hover:text-accent"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            >
+              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+            </button>
+            <button
               onClick={() => handleNavClick('/#contact')}
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-accent text-background font-semibold text-xs rounded-full hover:bg-white transition-colors duration-300"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-accent text-background font-semibold text-xs rounded-full hover:bg-surface hover:text-accent transition-colors duration-300"
             >
               Contact us
             </button>

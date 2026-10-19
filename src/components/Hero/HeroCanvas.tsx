@@ -11,6 +11,19 @@ interface Node {
   type: 'primary' | 'secondary' | 'tiny'
 }
 
+function hexToRgb(hex: string) {
+  const value = hex.replace('#', '')
+  const normalized = value.length === 3
+    ? value.split('').map(char => char + char).join('')
+    : value
+  const number = Number.parseInt(normalized, 16)
+  return {
+    r: (number >> 16) & 255,
+    g: (number >> 8) & 255,
+    b: number & 255,
+  }
+}
+
 export default function HeroCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animRef = useRef<number>(0)
@@ -71,6 +84,14 @@ export default function HeroCanvas() {
       timeRef.current += 0.006
       const t = timeRef.current
       const mouse = mouseRef.current
+      const styles = getComputedStyle(document.documentElement)
+      const accent = hexToRgb(styles.getPropertyValue('--color-accent').trim())
+      const text = hexToRgb(styles.getPropertyValue('--color-text').trim())
+      const purple = '167, 139, 250'
+      const rgba = (color: { r: number; g: number; b: number } | string, alpha: number) => {
+        const value = typeof color === 'string' ? color : `${color.r}, ${color.g}, ${color.b}`
+        return `rgba(${value}, ${alpha})`
+      }
 
       ctx.clearRect(0, 0, width, height)
 
@@ -112,8 +133,8 @@ export default function HeroCanvas() {
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
             ctx.strokeStyle = isAccent
-              ? `rgba(232, 255, 139, ${alpha * 0.7})`
-              : `rgba(167, 139, 250, ${alpha * 0.45})`
+              ? rgba(accent, alpha * 0.7)
+              : rgba(purple, alpha * 0.45)
             ctx.lineWidth = 0.7
             ctx.stroke()
           }
@@ -128,8 +149,8 @@ export default function HeroCanvas() {
 
         if (node.type === 'primary') {
           const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, r * 8)
-          grad.addColorStop(0, `rgba(232, 255, 139, ${alpha * 0.35})`)
-          grad.addColorStop(1, 'rgba(232, 255, 139, 0)')
+          grad.addColorStop(0, rgba(accent, alpha * 0.35))
+          grad.addColorStop(1, rgba(accent, 0))
           ctx.beginPath()
           ctx.arc(node.x, node.y, r * 8, 0, Math.PI * 2)
           ctx.fillStyle = grad
@@ -139,11 +160,11 @@ export default function HeroCanvas() {
         ctx.beginPath()
         ctx.arc(node.x, node.y, r, 0, Math.PI * 2)
         if (node.type === 'primary') {
-          ctx.fillStyle = `rgba(232, 255, 139, ${alpha})`
+          ctx.fillStyle = rgba(accent, alpha)
         } else if (node.type === 'secondary') {
-          ctx.fillStyle = `rgba(167, 139, 250, ${alpha * 0.8})`
+          ctx.fillStyle = rgba(purple, alpha * 0.8)
         } else {
-          ctx.fillStyle = `rgba(242, 242, 242, ${alpha * 0.5})`
+          ctx.fillStyle = rgba(text, alpha * 0.5)
         }
         ctx.fill()
       })
@@ -159,7 +180,7 @@ export default function HeroCanvas() {
         ctx.save()
         ctx.translate(s.x, s.y)
         ctx.rotate(s.rot)
-        ctx.strokeStyle = s.accent ? 'rgba(232, 255, 139, 0.12)' : 'rgba(167, 139, 250, 0.1)'
+        ctx.strokeStyle = s.accent ? rgba(accent, 0.12) : rgba(purple, 0.1)
         ctx.lineWidth = 1
         ctx.beginPath()
         ctx.moveTo(0, -s.size)
@@ -174,9 +195,9 @@ export default function HeroCanvas() {
       // Scanning line
       const scanY = ((t * 80) % (height + 80)) - 40
       const scanGrad = ctx.createLinearGradient(0, scanY - 40, 0, scanY + 40)
-      scanGrad.addColorStop(0, 'rgba(232, 255, 139, 0)')
-      scanGrad.addColorStop(0.5, 'rgba(232, 255, 139, 0.03)')
-      scanGrad.addColorStop(1, 'rgba(232, 255, 139, 0)')
+      scanGrad.addColorStop(0, rgba(accent, 0))
+      scanGrad.addColorStop(0.5, rgba(accent, 0.03))
+      scanGrad.addColorStop(1, rgba(accent, 0))
       ctx.fillStyle = scanGrad
       ctx.fillRect(0, scanY - 40, width, 80)
 

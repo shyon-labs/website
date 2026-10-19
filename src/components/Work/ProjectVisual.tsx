@@ -34,7 +34,7 @@ function HabitTrackerVisual({ color }: { color: string }) {
   return (
     <g>
       {/* Phone container mockup */}
-      <rect x="70" y="30" width="260" height="235" rx="16" fill="#141414" stroke={color} strokeWidth="1" strokeOpacity="0.3" />
+      <rect x="70" y="30" width="260" height="235" rx="16" fill="var(--color-surface)" stroke={color} strokeWidth="1" strokeOpacity="0.3" />
 
       {/* Header bar */}
       <rect x="90" y="45" width="220" height="35" rx="8" fill={color} fillOpacity="0.08" />
@@ -53,7 +53,7 @@ function HabitTrackerVisual({ color }: { color: string }) {
       {habits.map((h, idx) => (
         <g key={idx}>
           <rect x="90" y={115 + idx * 42} width="220" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke={color} strokeWidth="0.5" strokeOpacity="0.15" />
-          <text x="102" y={131 + idx * 42} fontSize="8" fontWeight="600" fill="#F0F0F0">{h.name}</text>
+          <text x="102" y={131 + idx * 42} fontSize="8" fontWeight="600" fill="var(--color-text)">{h.name}</text>
           <text x="102" y={143 + idx * 42} fontSize="6.5" fill={color} fillOpacity="0.7">Streak: {h.streak}</text>
           
           {/* Daily checks */}

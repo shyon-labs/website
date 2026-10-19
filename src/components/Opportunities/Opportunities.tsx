@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, Briefcase, Clock, MapPin, DollarSign } from 'lucide-react'
+import { ArrowUpRight, BriefcaseBusiness, Mail, Briefcase, Clock, MapPin, DollarSign } from 'lucide-react'
 import { opportunities } from '../../data/opportunities'
 
 const ease = [0.16, 1, 0.3, 1] as any
@@ -36,13 +36,41 @@ export default function Opportunities() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We are looking for dedicated talent to join us in marketing and scaling our independent software & AI products.
+            We are always looking for thoughtful people who want to help build the future of independent software and AI.
           </motion.p>
         </div>
 
-        {/* Job Card — Fully Mobile Responsive */}
-        <div className="space-y-6">
-          {opportunities.map((job, i) => (
+        {opportunities.length === 0 ? (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+            className="hover-lift relative overflow-hidden rounded-2xl border border-border bg-surface p-6 sm:p-10 md:p-14"
+          >
+            <div className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-accent/5 blur-3xl" />
+            <div className="relative flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-xl">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-accent/20 bg-accent-dim text-accent">
+                  <BriefcaseBusiness size={22} strokeWidth={1.5} />
+                </div>
+                <h3 className="mb-3 text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
+                  No open roles right now
+                </h3>
+                <p className="text-sm leading-relaxed text-text-muted md:text-base">
+                  We don&apos;t have any open opportunities at the moment. Check back soon — new roles will be posted here as they become available.
+                </p>
+              </div>
+              <div className="flex shrink-0 items-center gap-2 text-xs font-medium uppercase tracking-wider text-text-dim">
+                <span className="h-2 w-2 rounded-full bg-accent" />
+                Stay tuned
+                <ArrowUpRight size={14} className="text-accent" />
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="space-y-6">
+            {opportunities.map((job, i) => (
             <motion.div
               key={job.id}
               initial={{ opacity: 0, y: 30 }}
@@ -130,15 +158,16 @@ export default function Opportunities() {
                 </div>
                 <a
                   href="mailto:shyonlabs@gmail.com?subject=Application for Social Media Marketing Specialist"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-background font-bold text-xs rounded-full hover:bg-white transition-colors duration-300 shrink-0"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-background font-bold text-xs rounded-full hover:bg-surface hover:text-accent transition-colors duration-300 shrink-0"
                 >
                   <Mail size={13} />
                   shyonlabs@gmail.com
                 </a>
               </div>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 import Hero from '../components/Hero/Hero'
 import ScrollIntro from '../components/ScrollIntro/ScrollIntro'
 import Services from '../components/Services/Services'
-import WorkTeaser from '../components/Work/WorkTeaser'
 import Technologies from '../components/Technologies/Technologies'
 import Process from '../components/Process/Process'
 import WhyShyonLabs from '../components/WhyShyonLabs/WhyShyonLabs'
@@ -18,7 +17,7 @@ export default function HomePage() {
       <Hero />
       <ScrollIntro />
       <Services />
-      <WorkTeaser />
+      {/* Upcoming products section is intentionally hidden until product listings are ready. */}
       <Technologies />
       <Process />
       <WhyShyonLabs />

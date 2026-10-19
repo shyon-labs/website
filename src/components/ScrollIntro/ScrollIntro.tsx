@@ -75,7 +75,7 @@ export default function ScrollIntro() {
       <div
         className="absolute top-1/2 right-0 -translate-y-1/2 w-80 h-80 rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />

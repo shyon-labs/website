@@ -7,16 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#111111',
-        surface: '#1A1A1A',
-        'surface-2': '#202020',
-        border: '#282828',
-        'border-light': '#353535',
-        'text-primary': '#F0F0F0',
-        'text-muted': '#777777',
-        'text-dim': '#444444',
-        accent: '#E8FF8B',
-        'accent-dim': 'rgba(232, 255, 139, 0.12)',
+        background: 'var(--color-bg)',
+        surface: 'var(--color-surface)',
+        'surface-2': 'var(--color-surface-2)',
+        border: 'var(--color-border)',
+        'border-light': 'var(--color-border-light)',
+        'text-primary': 'var(--color-text)',
+        'text-muted': 'var(--color-muted)',
+        'text-dim': 'var(--color-dim)',
+        accent: 'var(--color-accent)',
+        'accent-dim': 'var(--color-accent-dim)',
         violet: '#7C3AED',
       },
       fontFamily: {
