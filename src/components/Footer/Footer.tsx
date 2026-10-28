@@ -82,6 +82,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/privacypolicy" className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
                 <a
                   href="mailto:shyonlabs@gmail.com"
                   className="footer-link text-text-dim text-xs hover:font-semibold hover:text-text-primary transition-all duration-300 flex items-center gap-1.5"

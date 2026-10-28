@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import FounderPage from './pages/FounderPage'
 import OpportunitiesPage from './pages/OpportunitiesPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import './index.css'
 
 function ScrollToTop() {
@@ -73,6 +74,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/founder" element={<FounderPage />} />
             <Route path="/opportunities" element={<OpportunitiesPage />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
